@@ -1,65 +1,58 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { Calendar, TrendingUp, Filter, Search } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+      <div className="container mx-auto px-4 py-16 max-w-5xl">
+        <header className="text-center mb-16">
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+            FDA & PDUFA Tracker
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl text-slate-300 max-w-2xl mx-auto">
+            Stay informed about upcoming Prescription Drug User Fee Act (PDUFA) review dates and FDA regulatory milestones.
+          </p>
+        </header>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-blue-500/50 transition-all">
+            <Calendar className="w-10 h-10 text-blue-400 mb-3" />
+            <h3 className="text-lg font-semibold mb-2">Real-Time Dates</h3>
+            <p className="text-slate-400 text-sm">Track PDUFA target action dates as they're scheduled and updated.</p>
+          </div>
+
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-purple-500/50 transition-all">
+            <Search className="w-10 h-10 text-purple-400 mb-3" />
+            <h3 className="text-lg font-semibold mb-2">Powerful Search</h3>
+            <p className="text-slate-400 text-sm">Find entries by company name, ticker symbol, or drug name.</p>
+          </div>
+
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-lg p-6 border border-slate-700 hover:border-pink-500/50 transition-all">
+            <Filter className="w-10 h-10 text-pink-400 mb-3" />
+            <h3 className="text-lg font-semibold mb-2">Smart Filters</h3>
+            <p className="text-slate-400 text-sm">Filter by therapeutic category, date range, and sort by relevance.</p>
+          </div>
+        </div>
+
+        <div className="text-center mb-12">
+          <Link
+            href="/fda-calendar"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 rounded-lg font-semibold text-lg transition-all shadow-lg hover:shadow-blue-500/25"
+          >
+            <TrendingUp className="w-5 h-5" />
+            View FDA Calendar
+          </Link>
+        </div>
+
+        <div className="bg-slate-800/30 backdrop-blur-sm rounded-lg p-6 border border-slate-700 text-center">
+          <p className="text-slate-400 text-sm">
+            Data sourced from FDA regulatory filings and publicly available sources.
+          </p>
+          <p className="text-slate-500 text-xs mt-2">
+            For informational purposes only. Not financial or medical advice.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </div>
     </div>
   );
 }
