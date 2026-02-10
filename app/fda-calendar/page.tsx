@@ -1,4 +1,6 @@
-import React from 'react';
+"use client";
+
+import { useState, useMemo } from 'react';
 import { Calendar } from 'lucide-react';
 import { PDUFA_DATA } from '@/lib/pdufa-data';
 
@@ -13,12 +15,12 @@ interface PdufaItem {
 }
 
 export default function FDACalendar() {
-  const [searchTerm, setSearchTerm] = React.useState('');
-  const [categoryFilter, setCategoryFilter] = React.useState('All');
-  const [dateFilter, setDateFilter] = React.useState('All');
-  const [sortOrder, setSortOrder] = React.useState('date-asc');
+  const [searchTerm, setSearchTerm] = useState('');
+  const [categoryFilter, setCategoryFilter] = useState('All');
+  const [dateFilter, setDateFilter] = useState('All');
+  const [sortOrder, setSortOrder] = useState('date-asc');
 
-  const filteredData = React.useMemo(() => {
+  const filteredData = useMemo(() => {
     let filtered = [...PDUFA_DATA];
 
     // Search filter
@@ -42,7 +44,6 @@ export default function FDACalendar() {
     const oneMonthFromNow = new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000);
     
     if (dateFilter !== 'All') {
-      const itemDate = new Date(item.pdufaDate);
       if (dateFilter === 'week') {
         const oneWeekFromNow = new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000);
         filtered = filtered.filter(item => {
