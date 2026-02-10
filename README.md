@@ -92,21 +92,6 @@ To set up monthly scraping (on the 1st of each month), use a cron job or schedul
 # Run at 9:00 AM on the 1st of every month
 0 9 1 * * cd /path/to/fda-tracker-vercel && python3 scripts/rttnews-scraper.py && git add public/fda-data.json && git commit -m "Update FDA data" && git push
 ```
-
-## 🌐 Deploy to Vercel
-
-1. Push this repository to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Click "Add New Project"
-4. Import the GitHub repository
-5. Click "Deploy"
-
-Vercel will automatically:
-- Detect Next.js
-- Install dependencies
-- Build the application
-- Deploy to a global CDN
-
 ### Environment Variables
 
 Optional: Add `BIOAPI_API_KEY` if you plan to integrate with BioAPI for additional data sources.
